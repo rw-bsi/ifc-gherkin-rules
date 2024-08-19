@@ -1,15 +1,17 @@
-name: Dispatch (development)
+name: Dispatch
 
 on:
   workflow_dispatch:
 
 jobs:
 
-  build_frontend:
+  dispatch:
 
-    name: build frontend
+    name: dispatch to validate
     runs-on: ubuntu-latest
       
     steps:
       - run: |
-          curl -H "Authorization: token {{ secrets.GH_TOKEN }} " -H 'Accept: application/vnd.github.everest-preview+json' "https://api.github.com/repos/rw-bsi/validate/dispatches" -d '{"event_type": "awesomeness", "client_payload": {"foo": "bar"}}'
+          curl -H "Authorization: token {{ secrets.GH_TOKEN }} " \
+          -H 'Accept: application/vnd.github.everest-preview+json' "https://api.github.com/repos/rw-bsi/validate/dispatches" \
+          -d '{"event_type": "awesomeness", "client_payload": {"foo": "bar"}}'
