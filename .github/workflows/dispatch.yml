@@ -14,4 +14,4 @@ jobs:
       - run: |
           curl -H "Authorization: token ${{ secrets.GH_TOKEN }} " \
           -H 'Accept: application/vnd.github.everest-preview+json' "https://api.github.com/repos/rw-bsi/validate/dispatches" \
-          -d '{"repo": "ifc-gherkin-rules", "branch": "main" }'
+          -d '{ "event_type": "submodule_dispatch", "client_payload": { "repo": "ifc-gherkin-rules", "branch": "main" } }'
