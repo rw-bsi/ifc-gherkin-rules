@@ -1,4 +1,4 @@
-name: Dispatch (development)
+name: Dispatch
 
 on:
   push:
