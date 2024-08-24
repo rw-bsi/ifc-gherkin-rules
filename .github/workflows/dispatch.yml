@@ -1,13 +1,16 @@
-name: Dispatch
+name: Dispatch (main)
 
 on:
+  push:
+    branches:
+      - main
   workflow_dispatch:
 
 jobs:
 
   dispatch:
 
-    name: dispatch to validate
+    name: dispatch to validate repo
     runs-on: ubuntu-latest
       
     steps:
