@@ -14,8 +14,11 @@ jobs:
     runs-on: ubuntu-latest
       
     steps:
+    
+      - run: ${{ tojson(github.event) }}
+        shell: cat {0}
+        
       - run: |
-          cat ${{ tojson(github.event) }}
           curl -H "Authorization: token ${{ secrets.GH_TOKEN }} " \
           -H 'Accept: application/vnd.github.everest-preview+json' "${{ vars.VALIDATE_REPO_DISPATCH_URL }}" \
           -d '{ "event_type": "submodule_dispatch", "client_payload": { "repo": "ifc-gherkin-rules", "branch": "${{ github.ref_name }}" } }'
