@@ -1,4 +1,4 @@
-name: Dispatch (main)
+name: Dispatch
 
 on:
   push:
